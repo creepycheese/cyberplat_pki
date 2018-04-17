@@ -3,31 +3,7 @@ require 'ffi'
 module CyberplatPKI::Library
   extend FFI::Library
 
-  if defined?(Rubinius) # Fuck you.
-    if Rubinius.windows?
-      tuple = "windows-"
-    elsif RUBY_PLATFORM =~ /linux/
-      tuple = "linux-"
-    else
-      tuple = "unknown-"
-    end
-
-    if FFI::Platform::ARCH =~ /x86_64/
-      tuple << "x86_64"
-    elsif FFI::Platform::ARCH =~ /(i.?|x)86/
-      tuple << "i386"
-    end
-  else
-    tuple = "#{FFI::Platform::OS}-#{FFI::Platform::ARCH}"
-  end
-
-  if tuple == 'windows-i386'
-    ffi_lib File.expand_path('../../../ext/libipriv32.dll', __FILE__)
-  elsif tuple == 'linux-i386'
-    ffi_lib File.expand_path('../../../ext/libipriv-linux32.so', __FILE__)
-  else
-    raise "CyberplatPKI: unsupported platform #{tuple}."
-  end
+  ffi_lib File.expand_path('../../../ext/libipriv.dylib', __FILE__)
 
   Errors = {
     -1   => "BAD_ARGS",
