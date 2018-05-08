@@ -3,11 +3,11 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
-  gem.name          = "cyberplat_pki"
-  gem.version       = "1.0.0"
-  gem.authors       = ["Peter Zotov"]
-  gem.email         = ["whitequark@whitequark.org"]
-  gem.description   = %q{CyberplatPKI is an FFI binding for signing Cyberplat requests.}
+  gem.name          = "cyberplat_pki_patched"
+  gem.version       = "1.0.1"
+  gem.authors       = ["Evgeniy Burdaev"]
+  gem.email         = ["inqify@gmail.com"]
+  gem.description   = %q{CyberplatPKI is an FFI binding for signing Cyberplat requests. Patched fork.}
   gem.summary       = gem.description
   gem.homepage      = "http://github.com/whitequark/cyberplat_pki"
 
